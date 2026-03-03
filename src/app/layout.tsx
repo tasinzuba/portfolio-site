@@ -4,6 +4,7 @@ import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider'
 import CustomCursor from '@/components/ui/CustomCursor'
 import NoiseOverlay from '@/components/ui/NoiseOverlay'
 import Navbar from '@/components/layout/Navbar'
+import WhatsAppWidget from '@/components/widgets/WhatsAppWidget'
 import './globals.css'
 
 const syne = Syne({
@@ -44,6 +45,7 @@ export default function RootLayout({
           <CustomCursor />
           <Navbar />
           {children}
+          <WhatsAppWidget />
         </SmoothScrollProvider>
       </body>
     </html>
