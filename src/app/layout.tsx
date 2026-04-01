@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Syne, Inter, Space_Mono } from 'next/font/google'
+import { Poppins, Space_Mono } from 'next/font/google'
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider'
 import CustomCursor from '@/components/ui/CustomCursor'
 import NoiseOverlay from '@/components/ui/NoiseOverlay'
@@ -7,15 +7,10 @@ import Navbar from '@/components/layout/Navbar'
 import WhatsAppWidget from '@/components/widgets/WhatsAppWidget'
 import './globals.css'
 
-const syne = Syne({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-syne',
-  weight: ['400', '500', '600', '700', '800'],
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
 })
 
 const spaceMono = Space_Mono({
@@ -25,8 +20,8 @@ const spaceMono = Space_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Alex Morrison | Cinematic Video Editor',
-  description: 'Professional video editor specializing in color grading, motion design, and post-production. Based remotely, serving clients worldwide.',
+  title: 'TIZ | Cinematic Video Editor',
+  description: 'Professional video editor specializing in viral editing styles, color grading, and motion design. Learn to earn $2,000/month in 90 days.',
 }
 
 export default function RootLayout({
@@ -35,10 +30,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable} ${spaceMono.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${spaceMono.variable}`}>
       <body
         className="overflow-x-hidden"
-        style={{ backgroundColor: '#000000', color: '#f0f0f0', fontFamily: 'var(--font-inter), sans-serif' }}
+        style={{ backgroundColor: '#000000', color: '#f0f0f0', fontFamily: 'var(--font-poppins), sans-serif' }}
       >
         <SmoothScrollProvider>
           <NoiseOverlay />

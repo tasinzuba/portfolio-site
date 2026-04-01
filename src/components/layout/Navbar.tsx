@@ -23,12 +23,12 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4"
+      className="fixed top-0 left-0 right-0 z-50 py-4"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="w-full px-4 md:max-w-6xl md:mx-auto md:px-12 flex items-center justify-between">
 
         {/* Logo */}
         <motion.a
@@ -38,7 +38,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           data-cursor="hover"
         >
-          AM
+          TIZ
         </motion.a>
 
         {/* Desktop nav — pill */}
@@ -64,50 +64,42 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA — purple */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Desktop CTA + Mobile hamburger — right side */}
+        <div className="flex items-center">
+          {/* Desktop CTA */}
           <motion.a
-            href="mailto:hello@alexmorrison.com"
-            className="flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white"
+            href="mailto:hello@tiz.com"
+            className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white"
             style={{
               background: 'linear-gradient(135deg, #e800ff, #c500d9)',
               boxShadow: '0 0 20px rgba(232,0,255,0.4)',
             }}
-            whileHover={{
-              scale: 1.04,
-              boxShadow: '0 0 32px rgba(232,0,255,0.6)',
-            }}
+            whileHover={{ scale: 1.04, boxShadow: '0 0 32px rgba(232,0,255,0.6)' }}
             data-cursor="hover"
           >
             Hire Me
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M2 7h10M7 2l5 5-5 5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </motion.a>
-        </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          data-cursor="hover"
-        >
-          <motion.span
-            className="w-6 h-px bg-white block"
-            animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 5 : 0 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.span
-            className="w-6 h-px bg-white block"
-            animate={{ opacity: menuOpen ? 0 : 1 }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="w-6 h-px bg-white block"
-            animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -5 : 0 }}
-            transition={{ duration: 0.3 }}
-          />
-        </button>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 py-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            data-cursor="hover"
+          >
+            <motion.span className="w-6 h-0.5 bg-white block rounded-full"
+              animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
+              transition={{ duration: 0.3 }} />
+            <motion.span className="w-6 h-0.5 bg-white block rounded-full"
+              animate={{ opacity: menuOpen ? 0 : 1 }}
+              transition={{ duration: 0.2 }} />
+            <motion.span className="w-6 h-0.5 bg-white block rounded-full"
+              animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
+              transition={{ duration: 0.3 }} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -118,11 +110,12 @@ export default function Navbar() {
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div
-          className="mt-3 mx-1 rounded-2xl px-4 py-4 flex flex-col gap-1"
+          className="mt-3 mx-4 rounded-2xl px-4 py-4 flex flex-col gap-1"
           style={{
             background: 'rgba(255,255,255,0.06)',
             border: '1px solid rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(16px)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
           }}
         >
           {NAV_LINKS.map((link, i) => (
@@ -139,7 +132,7 @@ export default function Navbar() {
           ))}
           <div className="pt-2 mt-1 border-t border-white/10">
             <a
-              href="mailto:hello@alexmorrison.com"
+              href="mailto:hello@tiz.com"
               className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full"
               style={{ background: 'linear-gradient(135deg, #e800ff, #c500d9)' }}
             >

@@ -41,10 +41,10 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 const timelineItems = [
-  { year: '2024', title: 'Senior Video Editor', company: 'Freelance / Global Clients' },
-  { year: '2022', title: 'Lead Post-Production Editor', company: 'Luminos Media Studio' },
-  { year: '2020', title: 'Video Editor', company: 'CreativeVision Agency' },
-  { year: '2019', title: 'Junior Editor & Colorist', company: 'IndieFilms Co.' },
+  { year: '2024', title: 'Founder — Ultimate Editors 2.0', company: 'Online Course / 670+ Students' },
+  { year: '2022', title: 'Senior Video Editor', company: 'Freelance / Global Brands' },
+  { year: '2021', title: 'Content Creator & Editor', company: 'Social Media / YouTube' },
+  { year: '2019', title: 'Video Editor', company: 'Digital Agency' },
 ]
 
 const containerVariants: Variants = {
@@ -66,17 +66,18 @@ export default function About() {
         >
           <p className="text-[#e800ff] text-sm uppercase tracking-widest mb-4">About Me</p>
           <h2 className="font-display font-black text-5xl md:text-6xl mb-6 leading-tight">
-            Crafting Stories<br />
-            <span className="gradient-text">Frame by Frame</span>
+            Viral Edits That<br />
+            <span className="gradient-text">Stop the Scroll</span>
           </h2>
           <p className="text-[#888888] text-lg leading-relaxed mb-6">
-            I&apos;m a passionate video editor with over 5 years of experience turning raw footage into
-            cinematic masterpieces. My expertise spans music videos, commercials, short films, and
-            corporate content — always with an eye for detail and a heart for storytelling.
+            I&apos;m TIZ — a professional video editor with 5+ years of experience creating viral content
+            for brands, creators, and businesses. I specialize in high-energy cuts, cinematic color
+            grading, and motion graphics that get results.
           </p>
           <p className="text-[#888888] text-lg leading-relaxed mb-10">
-            Every cut, every transition, every color grade — it&apos;s all intentional. I believe great
-            editing is invisible: the audience feels the emotion without noticing the craft.
+            I&apos;ve helped 670+ editors learn the exact system I use to consistently earn $2,000/month
+            — through my course Ultimate Editors 2.0. Every frame is intentional, every edit is
+            designed to keep viewers watching.
           </p>
 
           {/* Stats */}

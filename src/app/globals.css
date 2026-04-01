@@ -9,8 +9,8 @@
   --color-text-primary: #f0f0f0;
   --color-text-muted: #888888;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: var(--font-poppins), sans-serif;
+  --font-body: var(--font-poppins), sans-serif;
   --font-mono: 'Space Mono', monospace;
 
   --shadow-glow-blue: 0 0 30px rgba(232, 0, 255, 0.4);
@@ -77,7 +77,7 @@ html {
 body {
   background: #000000;
   color: #f0f0f0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   overflow-x: hidden;
 }
 

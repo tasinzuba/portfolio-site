@@ -1,4 +1,6 @@
 import Hero from '@/components/sections/Hero'
+import Services from '@/components/sections/Services'
+import Process from '@/components/sections/Process'
 import About from '@/components/sections/About'
 import BeforeAfter from '@/components/sections/BeforeAfter'
 import Portfolio from '@/components/sections/Portfolio'
@@ -11,6 +13,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Services />
+      <Process />
       <div className="section-divider" />
       <About />
       <div className="section-divider" />
