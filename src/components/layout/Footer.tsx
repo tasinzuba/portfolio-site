@@ -127,7 +127,7 @@ export default function Footer() {
                     backgroundClip: 'text',
                   }}
                 >
-                  JESAN
+                  TIZ
                 </span>
               </h3>
               <p className="text-sm text-white/35 max-w-xs mx-auto md:mx-0">
@@ -210,7 +210,7 @@ export default function Footer() {
           {/* Row 3: Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-xs text-white/25">
-              © 2025 Jesan. All rights reserved.
+              © 2025 TIZ. All rights reserved.
             </p>
             <p className="text-xs text-white/25">
               Designed & Developed with 💜 using Next.js

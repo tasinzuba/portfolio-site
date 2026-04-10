@@ -134,7 +134,7 @@ export default function WhyChooseUs() {
                 <span className="text-white font-bold text-sm">J</span>
               </div>
               <div>
-                <h3 className="text-white font-bold text-lg tracking-wide">JESAN</h3>
+                <h3 className="text-white font-bold text-lg tracking-wide">TIZ</h3>
                 <div className="w-2 h-2 rounded-full bg-[#4F46E5] -mt-0.5 ml-0.5" />
               </div>
             </div>
