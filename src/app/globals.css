@@ -127,12 +127,25 @@ body {
   box-shadow: 0 0 30px rgba(232, 0, 255, 0.06);
 }
 
-/* Gradient text — magenta */
+/* Gradient text — magenta to purple */
 .gradient-text {
-  background: linear-gradient(135deg, #e800ff, #c500d9);
+  background: linear-gradient(135deg, #e800ff, #a855f7, #7c3aed);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Gradient heading — for section titles */
+.gradient-heading {
+  background: linear-gradient(135deg, #ffffff 0%, #e800ff 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cal embed smooth */
+.cal-embed iframe {
+  transition: opacity 0.5s ease;
 }
 
 /* Neon glow button */
@@ -200,4 +213,58 @@ body {
 }
 .glow-blue {
   box-shadow: 0 0 20px rgba(232, 0, 255, 0.4);
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.marquee-left {
+  animation: marquee-left 35s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Rotating gradient border */
+@keyframes rotate-gradient {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.rotating-border {
+  position: relative;
+  border-radius: 16px;
+  padding: 1px;
+  background: conic-gradient(from var(--gradient-angle), #e800ff, #7000ff, #0044ff, #7000ff, #e800ff);
+  animation: rotate-gradient 4s linear infinite;
+}
+
+.rotating-border > * {
+  border-radius: 15px;
+}
+
+/* Back to top button */
+@keyframes subtle-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(232, 0, 255, 0); }
+  50% { box-shadow: 0 0 15px rgba(232, 0, 255, 0.2); }
 }

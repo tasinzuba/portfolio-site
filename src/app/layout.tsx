@@ -3,8 +3,8 @@ import { Poppins, Space_Mono } from 'next/font/google'
 import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider'
 import CustomCursor from '@/components/ui/CustomCursor'
 import NoiseOverlay from '@/components/ui/NoiseOverlay'
+import ParticlesBackground from '@/components/ui/ParticlesBackground'
 import Navbar from '@/components/layout/Navbar'
-import WhatsAppWidget from '@/components/widgets/WhatsAppWidget'
 import './globals.css'
 
 const poppins = Poppins({
@@ -36,11 +36,11 @@ export default function RootLayout({
         style={{ backgroundColor: '#000000', color: '#f0f0f0', fontFamily: 'var(--font-poppins), sans-serif' }}
       >
         <SmoothScrollProvider>
+          <ParticlesBackground />
           <NoiseOverlay />
           <CustomCursor />
           <Navbar />
           {children}
-          <WhatsAppWidget />
         </SmoothScrollProvider>
       </body>
     </html>

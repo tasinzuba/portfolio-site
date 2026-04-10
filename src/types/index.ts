@@ -1,13 +1,15 @@
 export interface Project {
   id: string
   title: string
-  category: 'Commercials' | 'Music Videos' | 'Short Films' | 'Events'
+  category: 'Podcast' | 'Educational' | 'Business' | 'Reels' | 'Thumbnail'
   year: string
   thumbnail: string
   description: string
   featured?: boolean
   tags: string[]
   youtubeId?: string
+  /** For Thumbnail/Graphic Design items — image path instead of video */
+  imageSrc?: string
   link?: string
 }
 
