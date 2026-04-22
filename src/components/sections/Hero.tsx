@@ -82,7 +82,7 @@ export default function Hero() {
                   border: '1px solid rgba(255,255,255,0.15)',
                 }}
               >
-                Ultimate Editors 2.0
+                Premium Video Production Agency
               </span>
             </motion.div>
 
@@ -91,19 +91,18 @@ export default function Hero() {
               variants={itemVariants}
               className="font-display font-bold text-3xl sm:text-4xl md:text-5xl leading-[1.1] mb-4 text-white"
             >
-              Learn Viral Editing<br />
-              Styles &amp; Earn{' '}
+              We Create Content<br />
+              That{' '}
               <span
                 style={{
-                  background: 'linear-gradient(135deg, #ff2d78, #ff6ba8)',
+                  background: 'linear-gradient(135deg, #e800ff, #9b00cc)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}
               >
-                $2,000/Month
+                Grows Your Brand
               </span>
-              <br />In 90 Days
             </motion.h1>
 
             {/* Subheading */}
@@ -111,8 +110,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-sm md:text-base text-white/50 mb-7 leading-relaxed"
             >
-              Learn Viral 2026 Editing Styles &amp; Make $2,000/mo with Video Editing in just 90
-              days without watching boring editing tutorials
+              From short-form reels to long-form YouTube — we handle your entire content production so you can focus on growing your business.
             </motion.p>
 
             {/* Social proof pill */}
@@ -125,18 +123,18 @@ export default function Hero() {
                 }}
               >
                 <div className="flex -space-x-2">
-                  {['#ff2d78', '#e800ff', '#00d4ff', '#ff9900'].map((c, i) => (
+                  {['#e800ff', '#9b00cc', '#7c3aed', '#4f46e5'].map((c, i) => (
                     <div
                       key={i}
                       className="w-7 h-7 rounded-full border-2 border-[#06040f] flex items-center justify-center text-[10px] font-bold text-white"
                       style={{ background: c }}
                     >
-                      {['A', 'M', 'J', 'K'][i]}
+                      {['L', 'J', 'S', 'M'][i]}
                     </div>
                   ))}
                 </div>
                 <span className="text-sm text-white/70">
-                  More Than <span className="text-white font-semibold">670</span> Viral Editors!
+                  Trusted by <span className="text-white font-semibold">500+</span> Brands &amp; Creators
                 </span>
               </div>
             </motion.div>
@@ -144,17 +142,20 @@ export default function Hero() {
             {/* CTA button */}
             <motion.div variants={itemVariants}>
               <motion.a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white"
+                href="https://cal.com/tasin-ahmed-61u67y/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white"
                 style={{
-                  background: 'linear-gradient(135deg, #7c3aed, #6d28d9)',
-                  boxShadow: '0 0 24px rgba(124,58,237,0.5)',
+                  background: 'linear-gradient(135deg, rgba(232,0,255,0.7), rgba(155,0,204,0.7))',
+                  boxShadow: '0 0 18px rgba(232,0,255,0.2)',
                 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 0 40px rgba(124,58,237,0.7)' }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.04, y: -2, boxShadow: '0 8px 28px rgba(232,0,255,0.4)' }}
+                whileTap={{ scale: 0.97, y: 0 }}
                 data-cursor="hover"
               >
-                Get Access
+                Book A Free Call
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </motion.a>
             </motion.div>
           </motion.div>
@@ -178,13 +179,13 @@ export default function Hero() {
                 }}
               >
                 <p className="text-white/75 text-sm leading-relaxed mb-4" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                  &ldquo;Finally, I made $1K in December, exactly $1,007, with even fewer videos than I was making before. It all comes down to the system.&rdquo;
+                  &ldquo;Month one with TIZ: 6M views. They truly understood my voice and style and brought it to life.&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#ff2d78] to-[#e800ff] flex items-center justify-center text-xs font-bold text-white">A</div>
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#e800ff] to-[#9b00cc] flex items-center justify-center text-xs font-bold text-white">J</div>
                   <div>
-                    <p className="text-white/90 text-sm font-semibold">Anas Kdr</p>
-                    <p className="text-white/40 text-xs">First 1k per month</p>
+                    <p className="text-white/90 text-sm font-semibold">Jasmin Alić</p>
+                    <p className="text-white/40 text-xs">300K+ LinkedIn followers</p>
                   </div>
                 </div>
               </div>
@@ -198,7 +199,7 @@ export default function Hero() {
                 }}
               >
                 <p className="text-white/55 text-sm leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                  &ldquo;If I had told myself 3 months ago I&apos;d be earning this consistently, I would&apos;ve never believed it.&rdquo;
+                  &ldquo;Our first video got 80 thousand views, transforming my channel completely.&rdquo;
                 </p>
               </div>
             </div>
@@ -268,15 +269,9 @@ export default function Hero() {
                 />
                 <div className="absolute inset-0 flex flex-col items-start justify-start p-8 z-10">
                   <h2 className="font-display font-black text-5xl md:text-6xl text-white leading-tight" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}>
-                    ULTIMATE<br />EDITORS 2.0
+                    TIZ<br />MEDIA
                   </h2>
-                  <div className="flex gap-2 mt-3">
-                    {[{ label: 'Pr', bg: '#9999FF' }, { label: 'Ae', bg: '#9999FF' }].map((s) => (
-                      <div key={s.label} className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold text-white" style={{ background: s.bg }}>
-                        {s.label}
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-white/50 text-sm mt-2 font-medium">Premium Video Agency</p>
                 </div>
                 <motion.button
                   onClick={() => setVideoPlaying(true)}
@@ -295,7 +290,7 @@ export default function Hero() {
                   </motion.div>
                 </motion.button>
                 <div className="absolute bottom-6 left-8 z-10">
-                  <span className="font-display font-black text-3xl text-white/70">UE</span>
+                  <span className="font-display font-black text-3xl text-white/70">TIZ</span>
                 </div>
 
               </div>

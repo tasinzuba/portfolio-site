@@ -2,11 +2,15 @@
 
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { NAV_LINKS } from '@/lib/constants'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isHome = pathname === '/'
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -23,34 +27,34 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 py-4"
+      className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 pt-4"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="w-full px-4 md:max-w-6xl md:mx-auto md:px-12 flex items-center justify-between">
-
+      {/* Main navbar box */}
+      <div
+        className="w-full max-w-4xl flex items-center justify-between px-4 py-3 rounded-2xl"
+        style={{
+          background: 'rgba(255,255,255,0.05)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+        }}
+      >
         {/* Logo */}
-        <motion.a
-          href="#hero"
-          onClick={(e) => { e.preventDefault(); handleNavClick('#hero') }}
-          className="font-display font-black text-2xl text-white leading-none"
-          whileHover={{ scale: 1.05 }}
-          data-cursor="hover"
-        >
-          TIZ
-        </motion.a>
+        <Link href={isHome ? '#hero' : '/'} onClick={() => { if (isHome) handleNavClick('#hero') }}>
+          <motion.span
+            className="font-display font-black text-2xl text-white leading-none"
+            whileHover={{ scale: 1.05 }}
+            data-cursor="hover"
+          >
+            TIZ
+          </motion.span>
+        </Link>
 
-        {/* Desktop nav — pill */}
-        <div
-          className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full"
-          style={{
-            background: 'rgba(255,255,255,0.06)',
-            border: '1px solid rgba(255,255,255,0.1)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-          }}
-        >
+        {/* Desktop nav links */}
+        <div className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((link) => (
             <motion.button
               key={link.href}
@@ -64,17 +68,18 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA + Mobile hamburger — right side */}
-        <div className="flex items-center">
+        {/* Right side */}
+        <div className="flex items-center gap-3">
           {/* Desktop CTA */}
           <motion.a
             href="mailto:hello@tiz.com"
-            className="hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white"
+            className="hidden md:flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold text-white"
             style={{
-              background: 'linear-gradient(135deg, #e800ff, #c500d9)',
-              boxShadow: '0 0 20px rgba(232,0,255,0.4)',
+              background: 'linear-gradient(135deg, rgba(232,0,255,0.7), rgba(155,0,204,0.7))',
+              boxShadow: '0 0 16px rgba(232,0,255,0.25)',
             }}
-            whileHover={{ scale: 1.04, boxShadow: '0 0 32px rgba(232,0,255,0.6)' }}
+            whileHover={{ scale: 1.04, y: -2, boxShadow: '0 8px 28px rgba(232,0,255,0.4)' }}
+            whileTap={{ scale: 0.97, y: 0 }}
             data-cursor="hover"
           >
             Hire Me
@@ -104,15 +109,15 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <motion.div
-        className="md:hidden overflow-hidden"
+        className="md:hidden w-full max-w-4xl overflow-hidden"
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: menuOpen ? 'auto' : 0, opacity: menuOpen ? 1 : 0 }}
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       >
         <div
-          className="mt-3 mx-4 rounded-2xl px-4 py-4 flex flex-col gap-1"
+          className="mt-2 rounded-2xl px-4 py-4 flex flex-col gap-1"
           style={{
-            background: 'rgba(255,255,255,0.06)',
+            background: 'rgba(8,6,20,0.95)',
             border: '1px solid rgba(255,255,255,0.1)',
             backdropFilter: 'blur(24px)',
             WebkitBackdropFilter: 'blur(24px)',
@@ -134,7 +139,7 @@ export default function Navbar() {
             <a
               href="mailto:hello@tiz.com"
               className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white w-full"
-              style={{ background: 'linear-gradient(135deg, #e800ff, #c500d9)' }}
+              style={{ background: 'linear-gradient(135deg, rgba(232,0,255,0.7), rgba(155,0,204,0.7))', borderRadius: '12px' }}
             >
               Hire Me →
             </a>

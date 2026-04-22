@@ -30,6 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${spaceMono.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+      </head>
       <body
         className="overflow-x-hidden"
         style={{ backgroundColor: '#000000', color: '#f0f0f0', fontFamily: 'var(--font-poppins), sans-serif' }}

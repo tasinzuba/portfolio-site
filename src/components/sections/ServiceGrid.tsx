@@ -56,12 +56,12 @@ const bentoRow1 = [
 const bentoRow2 = [
   {
     title: 'Digital Marketing',
-    desc: 'Full-funnel digital marketing — social media management, paid ads, SEO-optimized content, and growth hacking that drives real leads and conversions for your brand.',
+    desc: 'Paid ads, SEO, and social media management that drives real leads and conversions.',
     icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e800ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg>,
   },
   {
     title: 'Web Design & Development',
-    desc: 'Modern, conversion-focused websites and landing pages built with Next.js, Framer, and Webflow. Fast, responsive, and designed to turn visitors into clients.',
+    desc: 'Modern, conversion-focused websites built with Next.js and Framer. Fast, responsive, built to convert.',
     icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e800ff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>,
   },
 ]
@@ -85,6 +85,80 @@ function BonusDot() {
   return <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: '#e800ff', boxShadow: '0 0 8px rgba(232,0,255,0.6)' }} />
 }
 
+const ALL_SERVICES = [...bentoRow1, ...bentoRow2]
+const LOOPED = [...ALL_SERVICES, ...ALL_SERVICES]
+
+function CarouselCard({ service }: { service: typeof ALL_SERVICES[0] }) {
+  return (
+    <div
+      className="flex-shrink-0 rounded-2xl p-7 flex flex-col items-center text-center"
+      style={{
+        width: '340px',
+        background: 'rgba(12,10,24,0.85)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        backdropFilter: 'blur(16px)',
+      }}
+    >
+      <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.3), rgba(232,0,255,0.15))', border: '1px solid rgba(124,58,237,0.2)' }}>
+        {service.icon}
+      </div>
+      <h3 className="text-base font-bold text-white mb-2">{service.title}</h3>
+      <p className="text-sm text-white/40 leading-relaxed">{service.desc}</p>
+    </div>
+  )
+}
+
+function ServicesCarousel() {
+  return (
+    <div className="relative rounded-3xl py-16" style={{ background: '#000000' }}>
+      <div className="absolute inset-0 pointer-events-none rounded-3xl" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.15) 0%, transparent 65%)' }} />
+
+      <motion.div className="text-center mb-12 relative z-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+        <p className="text-sm font-medium text-white mb-3 inline-block px-5 py-2 rounded-[8px]" style={{ background: '#000000', border: '1px solid rgba(255,255,255,0.15)', letterSpacing: '0.01em' }}>CORE SERVICES</p>
+        <h2 className="text-3xl md:text-4xl font-bold leading-snug">
+          <span className="text-white/50">Types Of Work</span><br />
+          <span className="text-white font-extrabold">We Do</span>
+        </h2>
+      </motion.div>
+
+      {/* Infinite scroll rows */}
+      <div
+        className="overflow-hidden relative z-10 flex flex-col gap-4"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%)',
+        }}
+      >
+        {/* Row 1 — left */}
+        <motion.div
+          className="flex gap-4"
+          style={{ width: 'max-content' }}
+          animate={{ x: '-50%' }}
+          initial={{ x: '0%' }}
+          transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
+        >
+          {LOOPED.map((service, i) => (
+            <CarouselCard key={`a-${service.title}-${i}`} service={service} />
+          ))}
+        </motion.div>
+
+        {/* Row 2 — right */}
+        <motion.div
+          className="flex gap-4"
+          style={{ width: 'max-content' }}
+          animate={{ x: '0%' }}
+          initial={{ x: '-50%' }}
+          transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
+        >
+          {LOOPED.map((service, i) => (
+            <CarouselCard key={`b-${service.title}-${i}`} service={service} />
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+
 export default function ServiceGrid() {
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({
@@ -95,7 +169,7 @@ export default function ServiceGrid() {
   const headerOpacity = useTransform(scrollYProgress, [0, 0.12], [0, 1])
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 relative overflow-hidden" style={{ background: '#06040f' }}>
+    <section id="services" ref={sectionRef} className="py-24 relative overflow-hidden" style={{ background: '#000000' }}>
       {/* Neon glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px]" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(232,0,255,0.18) 0%, transparent 60%)' }} />
@@ -103,11 +177,11 @@ export default function ServiceGrid() {
         <div className="absolute bottom-1/3 right-0 w-[400px] h-[400px]" style={{ background: 'radial-gradient(circle at 100% 50%, rgba(232,0,255,0.08) 0%, transparent 60%)' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
 
         {/* ═══ WHY CHOOSE US ═══ */}
         <motion.div className="text-center mb-16" style={{ y: headerY, opacity: headerOpacity }}>
-          <p className="text-xs font-bold tracking-[0.25em] text-white/35 uppercase mb-3">WHY CHOOSE US</p>
+          <p className="text-sm font-medium text-white mb-3 inline-block px-5 py-2 rounded-[8px]" style={{ background: '#000000', border: '1px solid rgba(255,255,255,0.15)', letterSpacing: '0.01em' }}>WHY CHOOSE US</p>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug">
             <span className="text-white/40">Know What</span><br />
             <span className="gradient-heading">We Do Differently</span>
@@ -116,7 +190,7 @@ export default function ServiceGrid() {
 
         {/* Comparison — Glassy Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-28">
-          {/* LEFT — Us (glassy) */}
+          {/* LEFT — Others */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -127,14 +201,54 @@ export default function ServiceGrid() {
               <div
                 className="absolute inset-0 rounded-2xl"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'rgba(0,0,0,0.75)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(232,0,255,0.35)',
                 }}
               />
-              {/* Top neon line */}
-              <div className="absolute top-0 left-0 right-0 h-px rounded-t-2xl z-[3]" style={{ background: 'linear-gradient(90deg, transparent, #e800ff, transparent)' }} />
+
+              <div className="relative z-[5]">
+                <h3 className="text-xl font-bold text-white/50 mb-7">Other Agencies</h3>
+                <ul className="space-y-5">
+                  {otherAgencies.map((text, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <div className="mt-0.5"><XIcon /></div>
+                      <span className="text-sm text-white/35 leading-relaxed">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* RIGHT — Us */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <SpotlightCard className="rounded-2xl p-7 md:p-8 h-full">
+              <div
+                className="absolute inset-0 rounded-2xl"
+                style={{
+                  background: 'rgba(0,0,0,0.75)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(232,0,255,0.35)',
+                }}
+              />
+              {/* Corner glow */}
+              <div
+                className="absolute top-0 right-0 pointer-events-none rounded-2xl z-[2]"
+                style={{
+                  width: '60%',
+                  height: '60%',
+                  background: 'radial-gradient(ellipse at 100% 0%, rgba(232,0,255,0.45) 0%, rgba(155,0,204,0.2) 40%, transparent 70%)',
+                  filter: 'blur(12px)',
+                }}
+              />
 
               <div className="relative z-[5]">
                 {/* Brand */}
@@ -169,38 +283,6 @@ export default function ServiceGrid() {
               </div>
             </SpotlightCard>
           </motion.div>
-
-          {/* RIGHT — Others (glassy) */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <SpotlightCard className="rounded-2xl p-7 md:p-8 h-full">
-              <div
-                className="absolute inset-0 rounded-2xl"
-                style={{
-                  background: 'rgba(255,255,255,0.02)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                }}
-              />
-
-              <div className="relative z-[5]">
-                <h3 className="text-xl font-bold text-white/50 mb-7">Other Agencies</h3>
-                <ul className="space-y-5">
-                  {otherAgencies.map((text, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className="mt-0.5"><XIcon /></div>
-                      <span className="text-sm text-white/35 leading-relaxed">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </SpotlightCard>
-          </motion.div>
         </div>
 
         {/* CTA */}
@@ -214,10 +296,10 @@ export default function ServiceGrid() {
             href="https://cal.com/tasin-ahmed-61u67y/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white"
-            style={{ background: 'linear-gradient(135deg, #e800ff, #9b00cc)', boxShadow: '0 0 24px rgba(232,0,255,0.25)' }}
-            whileHover={{ scale: 1.04, boxShadow: '0 0 36px rgba(232,0,255,0.35)' }}
-            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white"
+            style={{ background: 'linear-gradient(135deg, rgba(232,0,255,0.7), rgba(155,0,204,0.7))', boxShadow: '0 0 18px rgba(232,0,255,0.2)' }}
+            whileHover={{ scale: 1.04, y: -2, boxShadow: '0 8px 28px rgba(232,0,255,0.4)' }}
+            whileTap={{ scale: 0.97, y: 0 }}
             data-cursor="hover"
           >
             Book A 30-Min Call
@@ -225,77 +307,8 @@ export default function ServiceGrid() {
           </motion.a>
         </motion.div>
 
-        {/* ═══ OUR SERVICES — Bento ═══ */}
-        <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-xs font-bold tracking-[0.25em] text-white/35 uppercase mb-3">OUR SERVICES</p>
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-            <span className="text-white/40">Everything You Need</span><br />
-            <span className="gradient-heading">Under One Roof</span>
-          </h2>
-        </motion.div>
-
-        {/* Row 1: 4 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
-          {bentoRow1.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.07 }}
-            >
-              <SpotlightCard className="rounded-2xl p-6 h-full transition-all duration-300 hover:-translate-y-1">
-                <div
-                  className="absolute inset-0 rounded-2xl"
-                  style={{ background: 'rgba(18,12,40,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}
-                />
-                {/* Top line on hover */}
-                <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[3]" style={{ background: 'linear-gradient(90deg, transparent, #e800ff, transparent)' }} />
-
-                <div className="relative z-[5]">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(232,0,255,0.08)' }}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{service.desc}</p>
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Row 2: 2 wide cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {bentoRow2.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.07 }}
-            >
-              <SpotlightCard className="rounded-2xl p-6 md:p-8 h-full transition-all duration-300 hover:-translate-y-1">
-                <div
-                  className="absolute inset-0 rounded-2xl"
-                  style={{ background: 'rgba(18,12,40,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}
-                />
-
-                <div className="relative z-[5]">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: 'rgba(232,0,255,0.08)' }}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{service.desc}</p>
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
-        </div>
+        {/* ═══ OUR SERVICES — Carousel ═══ */}
+        <ServicesCarousel />
       </div>
     </section>
   )

@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px]" style={{ background: 'radial-gradient(circle at 100% 100%, rgba(124,58,237,0.15) 0%, transparent 55%)' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -315,7 +315,7 @@ export default function Process() {
         <motion.div className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }} viewport={{ once: true }}>
-          <p className="text-xs font-bold tracking-[0.25em] text-white/35 uppercase mb-3">OUR PROCESS</p>
+          <p className="text-sm font-medium text-white mb-3 inline-block px-5 py-2 rounded-[8px]" style={{ background: '#000000', border: '1px solid rgba(255,255,255,0.15)', letterSpacing: '0.01em' }}>OUR PROCESS</p>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug">
             <span className="text-white/40">Our Strategy To Get</span><br />
             <span className="text-white">You Leads With Content</span>
