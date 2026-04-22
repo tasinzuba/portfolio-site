@@ -1,7 +1,6 @@
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import Process from '@/components/sections/Process'
-import About from '@/components/sections/About'
 import ServiceGrid from '@/components/sections/ServiceGrid'
 import Portfolio from '@/components/sections/Portfolio'
 import Pricing from '@/components/sections/Pricing'
@@ -21,10 +20,7 @@ export default function Home() {
       {/* 3. Process — 4-step zigzag timeline */}
       <Process />
 
-      {/* 4. About — bio + stats + experience timeline */}
-      <About />
-
-      {/* 5. Why Choose Us + Bento Services */}
+      {/* 4. Why Choose Us + Bento Services */}
       <ServiceGrid />
 
       {/* 6. Portfolio — tabbed video/thumbnail grid */}
